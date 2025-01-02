@@ -1,4 +1,4 @@
-name: Docker
+name: Docker new-client
 on:
   workflow_dispatch:
   push:
