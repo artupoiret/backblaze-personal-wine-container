@@ -44,7 +44,7 @@ fetch_and_install() {
     log_message "INSTALLER: Starting install_backblaze.exe"
     wine64 "install_backblaze.exe" "-nogui" &
 	
-	sleep 10
+	sleep 60
     
 	cp -R "${WINEPREFIX}drive_c/Program Files (x86)/Backblaze/" "${WINEPREFIX}drive_c/Program Files (x86)/Backblaze-safe/"
 	
