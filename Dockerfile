@@ -18,8 +18,8 @@ RUN mkdir -pm755 /etc/apt/keyrings && \
 
 RUN apt update && apt install --install-recommends winehq-devel cabextract p7zip unrar unzip zenity -y
 
-RUN wget --no-check-certificate https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -O /usr/local/bin/winetricks
-RUN chmod +x /usr/local/bin/winetricks
+RUN wget --no-check-certificate https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -O /usr/bin/winetricks
+RUN chmod +x /usr/bin/winetricks
 
 RUN DEBIAN_FRONTEND=noninteractive apt install -y locales && \
     sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
