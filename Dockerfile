@@ -16,9 +16,10 @@ RUN mkdir -pm755 /etc/apt/keyrings && \
     wget --no-check-certificate -O - https://dl.winehq.org/wine-builds/winehq.key | gpg --dearmor -o /etc/apt/keyrings/winehq-archive.key - && \
     wget --no-check-certificate -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/noble/winehq-noble.sources
 
-RUN apt update && apt install --install-recommends winehq-devel winetricks -y
+RUN apt update && apt install --install-recommends winehq-devel cabextract p7zip unrar unzip zenity -y
 
-RUN winetricks --self-update
+RUN wget --no-check-certificate https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -O /usr/local/bin/winetricks
+RUN chmod +x /usr/local/bin/winetricks
 
 RUN DEBIAN_FRONTEND=noninteractive apt install -y locales && \
     sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
